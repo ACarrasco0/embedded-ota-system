@@ -11,9 +11,7 @@
 #include <stdint.h>
 #include <unistd.h>
 
-#define ENABLE_GPIO     0
-#define ENABLE_I2C      0
-#define ENABLE_NETWORK  0
+
 #define ENABLE_LOGGING  1
 
 // Status codes

@@ -117,7 +117,7 @@ int tcp_server_recv(int client_fd, char *buffer, int buffer_size)
     int bytes = recv(client_fd, buffer, buffer_size, 0);
 
     if (bytes > 0) {
-#ifdef LOF_DEBUGGING
+#ifdef LOG_DEBUGGING
         log_info("received %d bytes", bytes);
         for (int i = 0; i < bytes; i++) {
             printf("%02X ", (unsigned char)buffer[i]);

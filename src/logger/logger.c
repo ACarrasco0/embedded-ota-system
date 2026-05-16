@@ -8,6 +8,10 @@
 #include <stdarg.h>
 #include "logger.h"
 
+#ifdef log_debug
+#undef log_debug
+#endif
+
 #ifdef ENABLE_LOGGING
  
 static void log_base(const char *level, const char *fmt, va_list args) {
@@ -30,11 +34,17 @@ void log_error(const char *fmt, ...) {
     va_end(args);
 }
 
+#ifdef LOG_DEBUGGING
 void log_debug(const char *fmt, ...) {
     va_list args;
     va_start(args, fmt);
     log_base("DEBUG", fmt, args);
     va_end(args);
 }
+#else
+void log_debug(const char *fmt, ...) {
+    (void)fmt;
+}
+#endif
 
 #endif // ENABLE_LOGGING

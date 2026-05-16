@@ -11,7 +11,12 @@
 
 void log_info(const char *fmt, ...);
 void log_error(const char *fmt, ...);
+
+#ifdef LOG_DEBUGGING
 void log_debug(const char *fmt, ...);
+#else
+#define log_debug(fmt, ...) ((void)0)
+#endif
 
 #else
 // If logging is disabled, define empty functions to avoid compilation errors

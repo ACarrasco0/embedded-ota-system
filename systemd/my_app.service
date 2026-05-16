@@ -1,0 +1,17 @@
+[Unit]
+Description=My App
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/opt/my_app/current/my_app
+WorkingDirectory=/opt/my_app/current
+
+User=root
+Group=root
+
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
